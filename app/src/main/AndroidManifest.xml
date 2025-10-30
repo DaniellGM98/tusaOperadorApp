@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="net.ddsmedia.tusa.tusamoviloperador">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> -->
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+        <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="34" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> -->
+    <!-- <uses-permission android:name="android.permission-group.NEARBY_DEVICES"/>
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES"/> -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.FOREGROUND_SERVICE_REMOTE_MESSAGING"
+        android:minSdkVersion="34"
+        tools:ignore="SystemPermissionTypo" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove"/>
+
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true"
+        android:exported="true"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".SaludActivity">
+        </activity>
+        <activity
+            android:name=".FotosActivity" />
+        <activity
+            android:name=".EvidenciasActivity" />
+        <activity
+            android:name=".SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/FullscreenTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" />
+
+        <receiver
+            android:name=".Utils.GeoBootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".PasswordActivity"
+            android:label="@string/title_activity_password" />
+
+        <activity
+            android:name=".TicketsActivity"
+            android:label="Tickets" />
+
+        <activity
+            android:name=".NewTicketActivity"
+            android:label="Newticket" />
+
+        <activity
+            android:name=".BitacoraActivity"
+            android:label="Bitacora" />
+
+        <activity
+            android:name=".RegistroHoraActivity"
+            android:label="RegistroHora" />
+
+        <activity
+            android:name=".SolicitudActivity"
+            android:label="Solicitud" />
+
+        <activity
+            android:name=".EspecialesActivity"
+            android:label="Especiales" />
+
+        <activity
+            android:name=".ConvertidorActivity"
+            android:label="Convertidor" />
+
+        <activity
+            android:name=".DirectorioActivity"
+            android:label="Directorio" />
+
+        <activity
+            android:name=".DocumentosActivity"
+            android:label="Documentos" />
+
+        <activity
+            android:name=".CargaEspecialesActivity"
+            android:label="CargaEspeciales" />
+
+        <activity
+            android:name=".VerActivity"
+            android:label="ver" />
+
+        <service
+            android:name=".Utils.FirebaseService"
+            android:foregroundServiceType="remoteMessaging"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".Utils.FirebaseIDService"
+            android:foregroundServiceType="remoteMessaging"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".HomeActivity" />
+
+        <receiver
+            android:name=".Utils.GeoAlarmReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service
+            android:name=".Utils.SaveGeoService"
+            android:foregroundServiceType="location"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".MasOrdenesActivity" />
+        <activity android:name=".HistorialActivity" />
+        <activity
+            android:name=".EvidenciaActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" >
+            </meta-data>
+        </provider>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+    </application>
+
+</manifest>

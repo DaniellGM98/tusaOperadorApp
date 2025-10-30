@@ -1,0 +1,271 @@
+<resources>
+    <string name="app_name">TUSA Movil Operador</string>
+
+    <string name="title_activity_login">Ingresar</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Matricula</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Iniciar Sesión</string>
+    <string name="action_sign_in_short">Ingresar</string>
+    <string name="error_invalid_email">La matricula no es válida</string>
+    <string name="error_invalid_password">La contraseña es muy corta</string>
+    <string name="error_incorrect_password">La contraseña es incorrecta</string>
+    <string name="error_field_required">Este campo es obligatorio</string>
+    <string name="title_activity_main">TUSA Movil Operador</string>
+
+    <string name="error_internet">No esta conectado a Internet</string>
+
+    <!-- Strings related to bitacora -->
+    <string name="operador">Operador</string>
+    <string name="licencia">Número de Licencia</string>
+    <string name="vigencia1">Vigencia de Licencia: </string>
+    <string name="vigencia">--/--/--</string>
+    <string name="vigencia2">Modificar</string>
+    <string name="fecha1">Fecha: </string>
+    <string name="tipo">Tipo de servicio y modalidad: TRANSLADO</string>
+    <string name="horas">Registro de actividad</string>
+    <string name="HorasTipo1">Fuera de Servicio</string>
+    <string name="HorasTipo2">En servicio (sin manejar)</string>
+    <string name="HorasTipo3">En traslado (manejando)</string>
+    <string name="HorasTipo4">Paradas no programadas</string>
+    <string name="desde">Desde: </string>
+    <string name="hasta">Hasta: </string>
+    <string name="ot">Número de OT</string>
+    <string name="origen">Origen</string>
+    <string name="destino">Destino</string>
+    <string name="marca">Marca</string>
+    <string name="modelo">Modelo</string>
+    <string name="placas">Placas</string>
+    <string name="saveBitacora">Enviar Bitacora</string>
+
+    <!-- Menú principal -->
+    <string name="title_recolectar">Recolectar</string>
+    <string name="title_entrega">Entrega</string>
+    <string name="title_entregam">Entrega Multiple</string>
+    <string name="title_history">Mis Envíos</string>
+    <string name="title_asignar">Asignar Envío</string>
+    <string name="title_seguimiento">Seguimiento</string>
+    <string name="title_call">Llamar Blink</string>
+    <string name="title_logout">Cerrar Sesión</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>Inicio</item>
+        <item>Historial</item>
+        <item>Ordenes Disponibles</item>
+        <item>Modificar Contraseña</item>
+        <item>Salir</item>
+        <item>Enviar Alerta</item>
+        <item>Solicitud de  llamada</item>
+        <item>Bitácora</item>
+        <item>Operaciones Especiales</item>
+        <item>Convertidor Combustible</item>
+        <item>Directorio</item>
+        <item>Cerrar sesión</item>
+        <item>Documentos</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons, keep them in order as the titles are in -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_mnu_home</item>
+        <item>@drawable/ic_mnu_historial</item>
+        <item>@drawable/ic_mnu_pendientes</item>
+        <item>@drawable/ic_mnu_pass</item>
+        <item>@drawable/ic_exit</item>
+
+        <item>@drawable/ic_mnu_contacto</item>
+        <item>@drawable/ic_mnu_entregar</item>
+        <item>@drawable/ic_mnu_envios</item>
+        <item>@drawable/ic_mnu_asignar</item>
+        <item>@drawable/ic_mnu_seguimiento</item>
+        <item>@drawable/ic_mnu_convertidor</item>
+        <item>@drawable/ic_mnu_directorio</item>
+        <item>@drawable/ic_mnu_sesion</item>
+        <item>@drawable/ic_mnu_documentos</item>
+    </array>
+
+    <array name="nav_drawer_icons2">
+        <item>@drawable/ic_mnu_home2</item>
+        <item>@drawable/ic_mnu_historial2</item>
+        <item>@drawable/ic_mnu_pendientes2</item>
+        <item>@drawable/ic_mnu_pass2</item>
+        <item>@drawable/ic_exit2</item>
+
+        <item>@drawable/ic_mnu_contacto</item>
+        <item>@drawable/ic_mnu_entregar</item>
+        <item>@drawable/ic_mnu_envios</item>
+        <item>@drawable/ic_mnu_asignar</item>
+        <item>@drawable/ic_mnu_seguimiento</item>
+        <item>@drawable/ic_mnu_convertidor2</item>
+        <item>@drawable/ic_mnu_directorio2</item>
+        <item>@drawable/ic_mnu_sesion2</item>
+        <item>@drawable/ic_mnu_documentos</item>
+    </array>
+
+    <array name="nav_drawer_icons3">
+        <item>@drawable/ic_mnu_home3</item>
+        <item>@drawable/ic_mnu_historial3</item>
+        <item>@drawable/ic_mnu_pendientes3</item>
+        <item>@drawable/ic_mnu_pass3</item>
+        <item>@drawable/ic_exit3</item>
+
+        <item>@drawable/ic_mnu_contacto</item>
+        <item>@drawable/ic_mnu_entregar</item>
+        <item>@drawable/ic_mnu_envios</item>
+        <item>@drawable/ic_mnu_asignar</item>
+        <item>@drawable/ic_mnu_seguimiento</item>
+        <item>@drawable/ic_mnu_convertidor3</item>
+        <item>@drawable/ic_mnu_directorio3</item>
+        <item>@drawable/ic_mnu_sesion3</item>
+        <item>@drawable/ic_mnu_documentos</item>
+    </array>
+
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="more_apps">https://play.google.com/store/apps/developer?id=DDS.media</string>
+
+    <!-- Parse push notification -->
+    <string name="parse_application_id">eVEY2IzSzELntTomE51brP2vhQYlqQ9Gwsgh8S3y</string>
+    <string name="parse_client_key">fasUrWXS3aINXRzNRQwrcyOtN7J5FQ0uzpvrAux7</string>
+    <string name="title_activity_envio">EnvioActivity</string>
+
+    <string name="emp_origen">Empresa Origen</string>
+    <string name="address">Dirección</string>
+    <string name="empresa">Empresa</string>
+    <string name="calles">Entre Calles</string>
+    <string name="telefono">Teléfono</string>
+    <string name="horario">Horario</string>
+    <string name="remitente">Remitente</string>
+    <string name="articulo">Artículo</string>
+    <string name="observaciones">Observaciones</string>
+    <string name="recolectado">Recolectado</string>
+    <string name="en_ruta">En Ruta</string>
+    <string name="barcode">Código de Barras</string>
+    <string name="folio">Folio</string>
+    <string name="recibe">Persona Recibe</string>
+    <string name="firma">Firma</string>
+    <string name="entregado">Entregado</string>
+
+    <string name="buscar">Buscar</string>
+    <string name="destinatario">Destinatario</string>
+    <string name="title_activity_asigna">Asignar Envíos</string>
+
+    <string name="no_entregado">No Entregado</string>
+    <string name="multiple">Multiple</string>
+
+    <string name="escribe_otra_causa">Escribe otra causa</string>
+    <string name="no_envios">No existen envíos asignados</string>
+    <string name="loading">Cargando..</string>
+    <string-array name="mnu_failed_options">
+        <item>Cambio de domicilio</item>
+        <item>Domicilio insuficiente</item>
+        <item>Domicilio inaccesible</item>
+        <item>Domicilio foráneo</item>
+        <item>No existe el domicilio</item>
+        <item>Domicilio deshabitado</item>
+        <item>No hay quien reciba</item>
+        <item>No conocen al destinatario</item>
+        <item>Información no solicitada</item>
+        <item>Documentos maltratados o mal impresos</item>
+        <item>La información no corresponde al cliente</item>
+        <item>Cancelación solicitada por el cliente</item>
+        <item>Información extraviada por el mensajero</item>
+        <item>Información duplicada</item>
+        <item>Especifique otras causas</item>
+    </string-array>
+    <string name="title_activity_password">Modificar Contraseña</string>
+    <string name="pwd_actual">Contraseña Actual</string>
+    <string name="pwd_new">Nueva Contraseña</string>
+    <string name="pwd_repeat">Repetir Contraseña</string>
+    <string name="save">Guardar</string>
+    <string name="error_pwd_actual">Contraseña Incorrecta</string>
+    <string name="error_pwd_diff">Las contrasñeas no coinciden</string>
+    <string name="orden">Orden de Traslado</string>
+    <string name="orden_accept">Aceptar Orden</string>
+    <string name="orden_init">Iniciar Orden</string>
+    <string name="orden_restart">Reiniciar Traslado</string>
+    <string name="orden_sitio">En Destino</string>
+    <string name="orden_origen">En Origen</string>
+    <string name="orden_finish">Finalizar Orden</string>
+    <string name="orden_paused">Orden Pausada</string>
+    <string name="boton_panico">Alerta</string>
+    <string name="activity_mas">Ordenes Asignadas</string>
+    <string name="activity_disponibles">Ordenes Disponibles</string>
+    <string name="activity_evidencia">Guardar Evidencia</string>
+    <string name="activity_fotos">Guardar Fotos</string>
+    <string name="activity_salud">Encuesta de Salud</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sin_orden">Sin Asignar</string>
+    <string name="no_orden_result">No se encontrarón ordenes</string>
+    <string name="no_contactos_result">No se encontrarón contactos</string>
+    <string name="no_tickets_result">No se encontrarón solicitudes</string>
+    <string name="activity_hist">Historial de Ordenes</string>
+    <string name="activity_especiales">Operaciones Especiales</string>
+    <string name="activity_carga_especiales">Operaciones Especiales</string>
+    <string name="activity_convertidor">Convertidor Combustible</string>
+    <string name="activity_directorio">Directorio</string>
+    <string name="activity_documentos">Documentos</string>
+    <string name="search">Buscar</string>
+    <string name="search_vin">Buscar VIN..</string>
+    <string name="descTodos">Descargar todos</string>
+    <string name="take_picture">Tomar Foto</string>
+    <string name="change_picture">Cambiar Foto</string>
+    <string name="route">Ruta</string>
+    <string name="fotos">Fotos</string>
+    <string name="gastos">Gastos</string>
+    <string name="stop_orden">Interrumpir Orden</string>
+    <string name="pause_orden">En Resguardo</string>
+
+    <string-array name="orden_status">
+        <item>--</item>
+        <item>Asignada</item>
+        <item>Iniciada</item>
+        <item>En Destino</item>
+        <item>Finalizada</item>
+        <item>Cancelada</item>
+        <item>Falso</item>
+        <item>En Origen</item>
+    </string-array>
+
+    <string-array name="hist_meses">
+        <item>Mes actual</item>
+        <item>Mes anterior</item>
+        <item>Dos meses atrás</item>
+    </string-array>
+
+    <string-array name="hist_status">
+        <item>Todas</item>
+        <item>Sin Comprobar</item>
+        <item>Pendiente Pago</item>
+        <item>Pagadas</item>
+    </string-array>
+
+    <string-array name="salud_sintomas">
+        <item>Fiebre</item>
+        <item>Tos</item>
+        <item>Moco</item>
+        <item>Congestión nasal</item>
+        <item>Estornudos</item>
+        <item>Dolor de garganta</item>
+        <item>Malestar de Garganta</item>
+        <item>Dificultad para respirar</item>
+        <item>Flema (amarilla/verdosa)</item>
+        <item>Vómito</item>
+        <item>Diarrea</item>
+        <item>Cansancio / Debilidad</item>
+        <item>Cuerpo Cortado</item>
+        <item>Dolor de Cabeza</item>
+    </string-array>
+
+</resources>

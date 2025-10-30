@@ -1,0 +1,76 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'net.ddsmedia.tusa.tusamoviloperador'
+    //noinspection GradleDependency
+    compileSdkVersion 35
+    defaultConfig {
+        applicationId "net.ddsmedia.tusa.tusamoviloperador"
+        minSdkVersion 26
+        //noinspection OldTargetApi,EditedTargetSdkVersion
+        targetSdkVersion 35
+        versionCode 93
+        versionName "1.3.31"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        buildConfigField "String", "APPLICATION_ID", '"net.ddsmedia.tusa.tusamoviloperador"'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    useLibrary 'org.apache.http.legacy'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    /*lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }*/
+    buildFeatures {
+        buildConfig = true
+    }
+    /*
+    defaultConfig {
+        //buildConfigField "String", "API_URL", '"https://api.example.com"'
+        //buildConfigField "int", "VERSION_CODE", "1"
+        buildConfigField "String", "APPLICATION_ID", '"net.ddsmedia.tusa.tusamoviloperador"'
+    }
+     */
+}
+
+dependencies {
+
+    implementation 'androidx.work:work-runtime:2.7.1'
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.0.0'
+    //implementation 'com.google.firebase:firebase-messaging:11.0.4'
+
+    implementation 'com.google.firebase:firebase-iid:21.1.0'
+    implementation 'com.google.firebase:firebase-core:21.1.1'
+    implementation 'com.google.firebase:firebase-bom:31.2.0'
+    implementation 'com.google.firebase:firebase-messaging:23.1.1'
+
+    constraints.implementation 'androidx.fragment:fragment:1.3.6'
+
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    testImplementation 'junit:junit:4.13.2'
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+apply plugin: 'com.google.gms.google-services'
