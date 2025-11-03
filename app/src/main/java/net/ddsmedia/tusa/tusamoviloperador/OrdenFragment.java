@@ -86,6 +86,7 @@ import static net.ddsmedia.tusa.tusamoviloperador.Utils.Globals.convertInputStre
 import static net.ddsmedia.tusa.tusamoviloperador.Utils.Globals.getBoolean;
 
 import androidx.core.content.ContextCompat;
+import java.nio.charset.StandardCharsets;
 
 
 public class OrdenFragment extends Fragment {
@@ -289,6 +290,94 @@ public class OrdenFragment extends Fragment {
     }
 
     private void  checkChangePermisions(int matricula){
+        Log.i("Permisos", "pERMISO");
+
+        // --- CÁMARA ---
+        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            Log.d("Permisos", "Cámara no concedida");
+            logPermisoFaltante(matricula, "Falta activar Permitir en Permiso de Camara");
+        } else {
+            Log.d("Permisos", "Cámara concedida");
+        }
+
+        // --- UBICACIÓN ---
+        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_BACKGROUND_LOCATION) != PackageManager.PERMISSION_GRANTED
+                //|| ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                //|| ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
+        ) {
+            Log.d("Permisos", "Ubicación no concedida");
+            logPermisoFaltante(matricula, "Falta activar Permitir todo el tiempo en Permiso de Ubicacion");
+        } else {
+            Log.d("Permisos", "Ubicación concedida");
+        }
+
+        // --- CONTACTOS ---
+        /*if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS)
+                != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_CONTACTS)
+                != PackageManager.PERMISSION_GRANTED) {
+            Log.d("Permisos", "Contactos no concedido");
+            logPermisoFaltante(matricula, "Falta activar Permitir en Permiso de Contactos");
+        } else {
+            Log.d("Permisos", "Contactos concedido");
+        }*/
+
+        // --- NOTIFICACIONES (solo Android 13 o superior) ---
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) { // API 33+
+            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.POST_NOTIFICATIONS)
+                    != PackageManager.PERMISSION_GRANTED) {
+                Log.d("Permisos", "Notificaciones no concedidas");
+                logPermisoFaltante(matricula, "Falta activar Mostrar Notificaciones en Permiso de Notificaciones");
+            } else {
+                Log.d("Permisos", "Notificaciones concedidas");
+            }
+        }
+
+        // --- AUDIO / MÚSICA ---
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) { // Android 13+
+            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_MEDIA_AUDIO)
+                    != PackageManager.PERMISSION_GRANTED) {
+                Log.d("Permisos", "Audio no concedido");
+                logPermisoFaltante(matricula, "Falta activar Permitir en Permiso de Musica y audios");
+            } else {
+                Log.d("Permisos", "Audio concedido");
+            }
+        } else { // Android 12 o inferior
+            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED) {
+                Log.d("Permisos", "Audio (legacy) no concedido");
+                logPermisoFaltante(matricula, "Falta activar Permitir en Permiso de Musica y audios");
+            } else {
+                Log.d("Permisos", "Audio (legacy) concedido");
+            }
+        }
+
+        // --- FOTOS / VIDEOS ---
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) { // Android 13+
+            boolean grantedImages = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED;
+            boolean grantedVideos = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_MEDIA_VIDEO) == PackageManager.PERMISSION_GRANTED;
+
+            if (!grantedImages || !grantedVideos) {
+                Log.d("Permisos", "Fotos/Videos no concedidos");
+                logPermisoFaltante(matricula, "Falta activar Permitir todo siempre en Permiso de Fotos y videos");
+            } else {
+                Log.d("Permisos", "Fotos/Videos concedidos");
+            }
+
+        } else { // Android 12 o inferior
+            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED) {
+                Log.d("Permisos", "Fotos/Videos (legacy) no concedidos");
+                logPermisoFaltante(matricula, "Falta activar Permitir todo siempre en Permiso de Fotos y videos");
+            } else {
+                Log.d("Permisos", "Fotos/Videos (legacy) concedidos");
+            }
+        }
+
+        /*
+
+
         // Camara
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             new Thread(() -> {
@@ -582,6 +671,54 @@ public class OrdenFragment extends Fragment {
             }).start();
         }
 
+
+         */
+
+    }
+
+    private void logPermisoFaltante(int matricula, String mensaje) {
+        new Thread(() -> {
+            HttpURLConnection conn = null;
+            try {
+                JSONObject json = new JSONObject();
+                json.put("m", matricula);
+                json.put("ms", mensaje);
+
+                URL url = new URL("http://trasladosuniversales.com.mx/app/permisos/logPermisos.php");
+                conn = (HttpURLConnection) url.openConnection();
+                conn.setConnectTimeout(10000);
+                conn.setReadTimeout(10000);
+                conn.setRequestMethod("POST");
+                conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+                conn.setDoOutput(true);
+
+                try (OutputStream os = conn.getOutputStream()) {
+                    os.write(json.toString().getBytes("UTF-8"));
+                    os.flush();
+                }
+
+                int responseCode = conn.getResponseCode();
+                Log.d("Permisos", "Código de respuesta: " + responseCode);
+
+                InputStream is = (responseCode >= 200 && responseCode < 400)
+                        ? conn.getInputStream()
+                        : conn.getErrorStream();
+
+                if (is != null) {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+                    StringBuilder result = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) result.append(line);
+                    reader.close();
+                    Log.d("Permisos", "Respuesta servidor: " + result);
+                }
+
+            } catch (Exception e) {
+                Log.e("Permisos", "Error al enviar logPermisoFaltante", e);
+            } finally {
+                if (conn != null) conn.disconnect();
+            }
+        }).start();
     }
 
     private void checkPaseLista(int matr, String ver){
